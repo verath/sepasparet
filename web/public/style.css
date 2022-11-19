@@ -1,0 +1,28 @@
+
+body {
+    background-color: DarkSlateGrey;
+    color: lightgoldenrodyellow;
+    font-family: 'Roboto', serif;
+    margin: 0;
+}
+
+#wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+#page-header {
+    font-family: 'Roboto', serif;
+    font-weight: normal;
+    text-align: center;
+}
+#page-header h1 {
+    font-size: 3em;
+}
+
+#graph-container {
+    flex-grow: 1
+}
+
+
