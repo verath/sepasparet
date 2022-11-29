@@ -1,28 +1,58 @@
 
 body {
-    background-color: DarkSlateGrey;
-    color: lightgoldenrodyellow;
+    background-color: #386767;
+    color: #222;
     font-family: 'Roboto', serif;
     margin: 0;
-}
-
-#wrapper {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
 }
 
 #page-header {
     font-family: 'Roboto', serif;
     font-weight: normal;
     text-align: center;
+    color: lightgoldenrodyellow;
 }
 #page-header h1 {
     font-size: 3em;
 }
 
-#graph-container {
-    flex-grow: 1
+#player-score-container {
+    padding: 4px;
 }
 
+.player-score {
+    background-color: white;
+    height: 54px;
+    display: flex;
+    align-items: center;
+    border: 1px solid #222;
+    box-sizing: border-box;
+    margin-top: 2px;
+}
 
+.player-score .profile-image {
+    height: 100%;
+}
+
+.player-score .profile-name {
+    margin-left: 8px;
+}
+
+.player-score .profile-user-score {
+    flex-grow: 1;
+    text-align: right;
+    padding-right: 16px;
+    font-size: large;
+}
+
+@media screen and (max-width: 500px) {
+    #graph-container {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 501px) {
+    #player-score-container {
+        display: none;
+    }
+}

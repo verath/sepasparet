@@ -51,6 +51,7 @@ const PA_SPARET_UPDATE = (function () {
             let friendData = highscore.highscores.forSeason[0].friends[i];
             playerTotalScores.set(friendData.userId, friendData.points);
         }
+        const maxTotalPlayerScore = [...playerTotalScores].map(e => e[1]).sort((a, b) => b - a)[0];
 
         // "userId" => [scoreEp1, scoreEp2, ...]
         let playerScores = new Map(playerIds.map(pId => [pId, []]));
@@ -87,18 +88,29 @@ const PA_SPARET_UPDATE = (function () {
         }));
 
         let plotData = [];
+        let playerScoreHTML = '';
         for (let entry of playerScores) {
             let [userId, episodeScores] = entry;
             let player = players.get(userId);
             let totalScore = playerTotalScores.get(userId);
+            let playerDisplayName = `${player.firstName} ${player.lastName[0]}`;
+            let percentageMaxScore = Math.floor((totalScore / maxTotalPlayerScore) * 100);
+            let playerFontColor = player.profile.color === "#424852" ? "#ddd" : "#222"
             plotData.push({
                 x: episodes,
                 y: episodeScores,
                 type: 'line',
                 // SPACES??? YES I DONT KNOW
-                name: `${player.firstName} ${player.lastName[0]} [${totalScore}]                      `,
+                name: `${playerDisplayName} [${totalScore}]                      `,
             })
+            playerScoreHTML += `
+                <div class="player-score" style="background-color: ${player.profile.color}; border-color: ${player.profile.color}; color: ${playerFontColor}; width: ${percentageMaxScore}%;">
+                    <img class="profile-image" src="${player.profile.imageUrl}" />
+                    <h2 class="profile-name">${playerDisplayName}</h2>
+                    <p class="profile-user-score">${totalScore}</p>
+                </div>`
         }
+        document.getElementById('player-score-container').innerHTML = playerScoreHTML;
 
         let layout = {
             autosize: true,
@@ -114,7 +126,6 @@ const PA_SPARET_UPDATE = (function () {
             yaxis: {
                 title: 'Score'
             },
-            title: "(↑) På Spåret",
             xaxis: {
                 tickvals: episodes,
                 ticktext: episodes.map(ep => `E${ep}`),
