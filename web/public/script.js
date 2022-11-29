@@ -114,8 +114,8 @@ const PA_SPARET_UPDATE = (function () {
 
         let layout = {
             autosize: true,
-            plot_bgcolor: "#2f4f4f",
-            paper_bgcolor: "#2f4f4f",
+            plot_bgcolor: "#386767",
+            paper_bgcolor: "#386767",
             font: {
                 family: 'Roboto',
                 color: '#DDB'
