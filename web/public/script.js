@@ -1,7 +1,7 @@
 const PA_SPARET_UPDATE = (function () {
     'use strict';
 
-    const PA_SPARET_PROXY_URL = "https://app.sepåspåret.se/";
+    const PA_SPARET_PROXY_URL = "/data-2023-02-18.json";
 
     function plot(graphElem, data) {
         graphElem.innerHTML = "";
