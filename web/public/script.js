@@ -1,7 +1,7 @@
 const PA_SPARET_UPDATE = (function () {
     'use strict';
 
-    const PA_SPARET_PROXY_URL = "/data-2023-11-04.json";
+    const PA_SPARET_PROXY_URL = "https://pa-sparet-proxy.fly.dev/";
 
     function plot(graphElem, data) {
         graphElem.innerHTML = "";
