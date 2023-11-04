@@ -1,116 +1,81 @@
 const PA_SPARET_UPDATE = (function () {
     'use strict';
 
-    const PA_SPARET_PROXY_URL = "/data-2023-03-04.json";
+    const PA_SPARET_PROXY_URL = "/data-2023-11-04.json";
 
     function plot(graphElem, data) {
         graphElem.innerHTML = "";
-        // data.highscore
-        // data.me_profile
-        let me_profile = data.me_profile;
-        let highscore = data.highscore;
-        let meUserId = me_profile.userId;
 
-        // userId => playerData
-        let players = new Map();
-        players.set(me_profile.userId, {
-            firstName: me_profile.firstName,
-            lastName: me_profile.lastName,
-            userId: me_profile.userId,
-            username: me_profile.username,
-            profile: {
-                color: me_profile.profile.color,
-                imageUrl: me_profile.profile.imageUrl,
-            }
-        });
-
-        for (let ep in highscore.highscores.byEpisode) {
-            let episodeData = highscore.highscores.byEpisode[ep][0];
-            episodeData.friends.forEach((playerData) => {
-                players.set(playerData.userId, {
-                    firstName: playerData.firstName,
-                    lastName: playerData.lastName,
-                    userId: playerData.userId,
-                    username: playerData.username,
-                    profile: {
-                        color: playerData.profile.color,
-                        imageUrl: playerData.profile.imageUrl,
-                    }
-                });
-            })
-        }
-        let playerIds = [];
-        players.forEach((_v, k) => playerIds.push(k));
-
-        // "userId" => totalScore
-        // For some reason this is not the same as the sum of all episode
-        // scores for some players??
-        let playerTotalScores = new Map(playerIds.map(pId => [pId, 0]));
-        playerTotalScores.set(meUserId, highscore.highscores.forSeason[0].user.points);
-        for (let i = 0; i < highscore.highscores.forSeason[0].friends.length; i++) {
-            let friendData = highscore.highscores.forSeason[0].friends[i];
-            playerTotalScores.set(friendData.userId, friendData.points);
-        }
-        const maxTotalPlayerScore = [...playerTotalScores].map(e => e[1]).sort((a, b) => b - a)[0];
-
-        // "userId" => [scoreEp1, scoreEp2, ...]
-        let playerScores = new Map(playerIds.map(pId => [pId, []]));
-        let episodes = [];
-        for (let ep in highscore.highscores.byEpisode) {
-            let episodeData = highscore.highscores.byEpisode[ep][0];
-            let meScore = episodeData.user.points || 0;
-            let friendScores = episodeData.friends.map((friendData) =>
-                [friendData.userId, friendData.points]
-            );
-            if (meScore == 0 && friendScores.length == 0) {
-                continue; // This episode was not played by anyone.
-            }
-            episodes.push(ep);
-            let episodeScores = [[meUserId, meScore]];
-            episodeScores = episodeScores.concat(friendScores);
-            // Add players that did not participate in this episode.
-            let episodeUserIds = episodeScores.map(([id, _]) => id);
-            let missingPlayerIds = playerIds.filter(pId => episodeUserIds.indexOf(pId) === -1);
-            episodeScores = episodeScores.concat(missingPlayerIds.map(pId => [pId, NaN]));
-
-            episodeScores.forEach(([id, score]) => {
-                let s = playerScores.get(id) || [];
-                s.push(score);
-                playerScores.set(id, s);
+        // "userId" => User
+        let users = new Map();
+        for (const userData of data["users"]) {
+            users.set(userData.user_id, {
+                userId: userData.user_id,
+                username: userData.username,
+                firstName: userData.first_name,
+                lastName: userData.last_name,
+                profile: {
+                    color: userData.profile.color,
+                    imageUrl: userData.profile.image_url,
+                }
             });
         }
 
-        // Sort playerScores by highest total score
-        playerScores = new Map([...playerScores].sort((a, b) => {
-            let aTotalScore = playerTotalScores.get(a[0]) || 0;
-            let bTotalScore = playerTotalScores.get(b[0]) || 0;
-            return bTotalScore - aTotalScore;
-        }));
+        // Episodes with data. Assume no missing episodes => length is OK.
+        const numEpisodes = data["episode_scores"].filter(e => e.scores.length > 0).length
+        const episodes = [...Array(numEpisodes).keys()];
+
+        // "userId" => [scoreEp1, scoreEp2, ...]
+        let userScores = new Map(
+            Array.from(users.keys()).map(userId => 
+                [userId, Array(numEpisodes).fill(0)]
+        ));
+        for (const episodeScoreData of data["episode_scores"]) {
+            const episodeIdx = episodeScoreData.episode - 1;
+            for (const userScoreData of episodeScoreData.scores) {
+                const userId = userScoreData.user_id;
+                const score = userScoreData.score;
+                let userScore = userScores.get(userId);
+                userScore[episodeIdx] = score;
+                userScores.set(userId, userScore);
+            }
+        }
+
+        const sum = function sum(vs) {
+            return vs.reduce((acc, v) => acc + v, 0)
+        }
+        
+        // Filter users with 0 total score.
+        userScores = new Map([...userScores].filter(([_, scores]) => sum(scores) > 0));
+
+        // Sort by highest total score.
+        userScores = new Map([...userScores].sort((a, b) => b[1] - a[1]));
+
+        const maxUserScore = sum(userScores.values().next().value);
 
         let plotData = [];
-        let playerScoreHTML = '';
-        for (let entry of playerScores) {
-            let [userId, episodeScores] = entry;
-            let player = players.get(userId);
-            let totalScore = playerTotalScores.get(userId);
-            let playerDisplayName = `${player.firstName} ${player.lastName[0]}`;
-            let percentageMaxScore = Math.floor((totalScore / maxTotalPlayerScore) * 100);
-            let playerFontColor = player.profile.color === "#424852" ? "#ddd" : "#222"
+        let scoreHTML = '';
+        for (let [userId, episodeScores] of userScores) {
+            let user = users.get(userId);
+            let totalScore = sum(episodeScores);
+            let displayName = `${user.firstName} ${user.lastName[0]}`;
+            let percentageMaxScore = Math.floor((totalScore / maxUserScore) * 100);
+            let fontColor = user.profile.color === "#424852" ? "#ddd" : "#222"
             plotData.push({
                 x: episodes,
                 y: episodeScores,
                 type: 'line',
                 // SPACES??? YES I DONT KNOW
-                name: `${playerDisplayName} [${totalScore}]                      `,
+                name: `${displayName} [${totalScore}]                      `,
             })
-            playerScoreHTML += `
-                <div class="player-score" style="background-color: ${player.profile.color}; border-color: ${player.profile.color}; color: ${playerFontColor}; width: ${percentageMaxScore}%;">
-                    <img class="profile-image" src="${player.profile.imageUrl}" />
-                    <h2 class="profile-name">${playerDisplayName}</h2>
+            scoreHTML += `
+                <div class="player-score" style="background-color: ${user.profile.color}; border-color: ${user.profile.color}; color: ${fontColor}; width: ${percentageMaxScore}%;">
+                    <img class="profile-image" src="${user.profile.imageUrl}" />
+                    <h2 class="profile-name">${displayName}</h2>
                     <p class="profile-user-score">${totalScore}</p>
                 </div>`
         }
-        document.getElementById('player-score-container').innerHTML = playerScoreHTML;
+        document.getElementById('player-score-container').innerHTML = scoreHTML;
 
         let layout = {
             autosize: true,
@@ -161,5 +126,26 @@ const PA_SPARET_UPDATE = (function () {
     return update;
 })();
 
-
 PA_SPARET_UPDATE(document.getElementById('graph-container'));
+
+// Toggle graph button.
+(function() {
+    let graphShown = false;
+    const toggleBtn = document.getElementById('btn-toggle-graph');
+    const graphContainer = document.getElementById('graph-container');
+
+    toggleBtn.innerText = "Show Episode Graph";
+    toggleBtn.addEventListener('click', function() {
+        if (graphShown) {
+            graphContainer.style.display = 'none';
+            toggleBtn.innerText = "Show Episode Graph"
+        } else {
+            graphContainer.style.display = 'block';
+            toggleBtn.innerText = "Hide Episode Graph"
+            // Force plotly to redraw... 🙃.
+            window.dispatchEvent(new Event('resize'));
+        }
+        graphShown = !graphShown;
+    });
+})();
+
