@@ -28,7 +28,7 @@ const PA_SPARET_UPDATE = (function () {
         // "userId" => [scoreEp1, scoreEp2, ...]
         let userScores = new Map(
             Array.from(users.keys()).map(userId => 
-                [userId, Array(numEpisodes).fill(0)]
+                [userId, Array(numEpisodes).fill(null)]
         ));
         for (const episodeScoreData of data["episode_scores"]) {
             const episodeIdx = episodeScoreData.episode - 1;
@@ -42,14 +42,17 @@ const PA_SPARET_UPDATE = (function () {
         }
 
         const sum = function sum(vs) {
-            return vs.reduce((acc, v) => acc + v, 0)
+            return vs.reduce((acc, v) => {
+                v = (v == null) ? 0 : v;
+                return acc + v
+            }, 0);
         }
         
         // Filter users with 0 total score.
         userScores = new Map([...userScores].filter(([_, scores]) => sum(scores) > 0));
 
         // Sort by highest total score.
-        userScores = new Map([...userScores].sort((a, b) => b[1] - a[1]));
+        userScores = new Map([...userScores].sort((a, b) => sum(b[1]) - sum(a[1])));
 
         const maxUserScore = sum(userScores.values().next().value);
 
@@ -93,7 +96,7 @@ const PA_SPARET_UPDATE = (function () {
             },
             xaxis: {
                 tickvals: episodes,
-                ticktext: episodes.map(ep => `E${ep}`),
+                ticktext: episodes.map(ep => `E${ep + 1}`),
             }
         };
 
