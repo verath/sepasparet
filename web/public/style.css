@@ -28,6 +28,9 @@ body {
     border: 1px solid #222;
     box-sizing: border-box;
     margin-top: 2px;
+
+    transition: width 1.5s ease-in-out;
+    width: 20%;
 }
 
 .player-score .profile-image {

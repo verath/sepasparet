@@ -56,8 +56,9 @@ const PA_SPARET_UPDATE = (function () {
 
         const maxUserScore = sum(userScores.values().next().value);
 
+        let playerScoreContainerElem = document.getElementById('player-score-container');
+        playerScoreContainerElem.innerHTML = "";
         let plotData = [];
-        let scoreHTML = '';
         for (let [userId, episodeScores] of userScores) {
             let user = users.get(userId);
             let totalScore = sum(episodeScores);
@@ -71,14 +72,33 @@ const PA_SPARET_UPDATE = (function () {
                 // SPACES??? YES I DONT KNOW
                 name: `${displayName} [${totalScore}]                      `,
             })
-            scoreHTML += `
-                <div class="player-score" style="background-color: ${user.profile.color}; border-color: ${user.profile.color}; color: ${fontColor}; width: ${percentageMaxScore}%;">
-                    <img class="profile-image" src="${user.profile.imageUrl}" />
-                    <h2 class="profile-name">${displayName}</h2>
-                    <p class="profile-user-score">${totalScore}</p>
-                </div>`
+            // <div class="player-score">
+            let playerScoreElem = document.createElement("div");
+            playerScoreElem.classList.add("player-score");
+            //  <img class="profile-image">
+            let profileImageElem = document.createElement("img");
+            profileImageElem.classList.add("profile-image");
+            profileImageElem.src = user.profile.imageUrl;
+            playerScoreElem.appendChild(profileImageElem);
+            //  <h2 class="profile-name">
+            let profileNameElem = document.createElement("h2");
+            profileNameElem.classList.add("profile-name")
+            profileNameElem.innerText = displayName;
+            playerScoreElem.appendChild(profileNameElem);
+            //  <p class="profile-user-score">
+            let profileUserScoreElem = document.createElement("p");
+            profileUserScoreElem.classList.add("profile-user-score")
+            profileUserScoreElem.innerText = totalScore;
+            playerScoreElem.appendChild(profileUserScoreElem);
+
+            playerScoreContainerElem.appendChild(playerScoreElem);
+            requestAnimationFrame(() => {
+                playerScoreElem.style.backgroundColor = user.profile.color;
+                playerScoreElem.style.borderColor = user.profile.color;
+                playerScoreElem.style.color = fontColor;
+                playerScoreElem.style.width = `${percentageMaxScore}%`;
+            });
         }
-        document.getElementById('player-score-container').innerHTML = scoreHTML;
 
         let layout = {
             autosize: true,
