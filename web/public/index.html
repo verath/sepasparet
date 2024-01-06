@@ -40,5 +40,21 @@
         <button id="btn-toggle-graph"></button>
       </p>
       <div id="graph-container"></div>
+
+      <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-analytics.js";
+        // Initialize Firebase
+        const app = initializeApp({
+          apiKey: "AIzaSyBqS0FfB7ichOwD0WJJp_cPcK24JW9-bMM",
+          authDomain: "sepasparet.firebaseapp.com",
+          projectId: "sepasparet",
+          storageBucket: "sepasparet.appspot.com",
+          messagingSenderId: "672590952784",
+          appId: "1:672590952784:web:cc6805af2d693479bc5455",
+          measurementId: "G-L7VSYGH5ZT"
+        });
+        getAnalytics(app);
+      </script>
   </body>
 </html>
