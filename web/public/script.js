@@ -21,15 +21,19 @@ const PA_SPARET_UPDATE = (function () {
             });
         }
 
-        // Episodes with data. Assume no missing episodes => length is OK.
-        const numEpisodes = data["episode_scores"].filter(e => e.scores.length > 0).length
-        const episodes = [...Array(numEpisodes).keys()];
+        const minEpisode = data["episode_scores"].reduce((min, e) => Math.min(min, e.episode), 1000);
+        const maxEpisode = data["episode_scores"].reduce((max, e) => Math.max(max, e.episode), 0);
+        const episodes = [];
+        for (let i = minEpisode; i <= maxEpisode; i++) {
+            episodes.push(i);
+        }
+        const numEpisodes = episodes.length;
 
         // "userId" => [scoreEp1, scoreEp2, ...]
         let userScores = new Map(
-            Array.from(users.keys()).map(userId => 
+            Array.from(users.keys()).map(userId =>
                 [userId, Array(numEpisodes).fill(null)]
-        ));
+            ));
         for (const episodeScoreData of data["episode_scores"]) {
             const episodeIdx = episodeScoreData.episode - 1;
             for (const userScoreData of episodeScoreData.scores) {
@@ -47,7 +51,7 @@ const PA_SPARET_UPDATE = (function () {
                 return acc + v
             }, 0);
         }
-        
+
         // Filter users with 0 total score.
         userScores = new Map([...userScores].filter(([_, scores]) => sum(scores) > 0));
 
@@ -79,6 +83,7 @@ const PA_SPARET_UPDATE = (function () {
             let profileImageElem = document.createElement("img");
             profileImageElem.classList.add("profile-image");
             profileImageElem.src = user.profile.imageUrl;
+            profileImageElem.referrerPolicy = 'no-referrer'
             playerScoreElem.appendChild(profileImageElem);
             //  <h2 class="profile-name">
             let profileNameElem = document.createElement("h2");
@@ -116,8 +121,8 @@ const PA_SPARET_UPDATE = (function () {
             },
             xaxis: {
                 tickvals: episodes,
-                ticktext: episodes.map(ep => `E${ep + 1}`),
-            }
+                ticktext: episodes.map(ep => `E${ep}`),
+            },
         };
 
         let plot_options = {
@@ -152,13 +157,13 @@ const PA_SPARET_UPDATE = (function () {
 PA_SPARET_UPDATE(document.getElementById('graph-container'));
 
 // Toggle graph button.
-(function() {
+(function () {
     let graphShown = false;
     const toggleBtn = document.getElementById('btn-toggle-graph');
     const graphContainer = document.getElementById('graph-container');
 
     toggleBtn.innerText = "Show Episode Graph";
-    toggleBtn.addEventListener('click', function() {
+    toggleBtn.addEventListener('click', function () {
         if (graphShown) {
             graphContainer.style.display = 'none';
             toggleBtn.innerText = "Show Episode Graph"
