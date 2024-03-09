@@ -1,0 +1,734 @@
+{
+    "episode_scores": [
+        {
+            "episode": 1,
+            "scores": [
+                {
+                    "user_id": "eITD4QpjU6",
+                    "score": 45
+                },
+                {
+                    "user_id": "qIx4Y8r3e",
+                    "score": 44
+                },
+                {
+                    "user_id": "xnTaNTEyv",
+                    "score": 44
+                },
+                {
+                    "user_id": "rtwERQiz",
+                    "score": 43
+                },
+                {
+                    "user_id": "rsicgL3",
+                    "score": 43
+                },
+                {
+                    "user_id": "90vGX7z12X",
+                    "score": 43
+                },
+                {
+                    "user_id": "mq01epNgN3",
+                    "score": 43
+                },
+                {
+                    "user_id": "qbsgtzs0DZ",
+                    "score": 41
+                },
+                {
+                    "user_id": "ytedngVm7W",
+                    "score": 40
+                },
+                {
+                    "user_id": "rrI0nXw",
+                    "score": 39
+                },
+                {
+                    "user_id": "EhkAJqvKqo",
+                    "score": 39
+                },
+                {
+                    "user_id": "vM8J41Ej0L",
+                    "score": 38
+                },
+                {
+                    "user_id": "88XmSp5Zg",
+                    "score": 34
+                },
+                {
+                    "user_id": "3YG81qJdO7",
+                    "score": 34
+                }
+            ]
+        },
+        {
+            "episode": 10,
+            "scores": [
+                {
+                    "user_id": "xnTaNTEyv",
+                    "score": 35
+                },
+                {
+                    "user_id": "eITD4QpjU6",
+                    "score": 34
+                },
+                {
+                    "user_id": "qIx4Y8r3e",
+                    "score": 33
+                },
+                {
+                    "user_id": "qbsgtzs0DZ",
+                    "score": 33
+                },
+                {
+                    "user_id": "vM8J41Ej0L",
+                    "score": 31
+                },
+                {
+                    "user_id": "rsicgL3",
+                    "score": 30
+                },
+                {
+                    "user_id": "ytedngVm7W",
+                    "score": 27
+                },
+                {
+                    "user_id": "3YG81qJdO7",
+                    "score": 26
+                }
+            ]
+        },
+        {
+            "episode": 11,
+            "scores": [
+                {
+                    "user_id": "eITD4QpjU6",
+                    "score": 36
+                },
+                {
+                    "user_id": "xnTaNTEyv",
+                    "score": 34
+                },
+                {
+                    "user_id": "3YG81qJdO7",
+                    "score": 33
+                },
+                {
+                    "user_id": "qIx4Y8r3e",
+                    "score": 31
+                },
+                {
+                    "user_id": "vM8J41Ej0L",
+                    "score": 30
+                },
+                {
+                    "user_id": "rsicgL3",
+                    "score": 29
+                },
+                {
+                    "user_id": "qbsgtzs0DZ",
+                    "score": 29
+                },
+                {
+                    "user_id": "ytedngVm7W",
+                    "score": 21
+                }
+            ]
+        },
+        {
+            "episode": 12,
+            "scores": []
+        },
+        {
+            "episode": 13,
+            "scores": [
+                {
+                    "user_id": "88XmSp5Zg",
+                    "score": 51
+                },
+                {
+                    "user_id": "qbsgtzs0DZ",
+                    "score": 47
+                },
+                {
+                    "user_id": "mq01epNgN3",
+                    "score": 43
+                },
+                {
+                    "user_id": "ytedngVm7W",
+                    "score": 42
+                },
+                {
+                    "user_id": "rsicgL3",
+                    "score": 40
+                },
+                {
+                    "user_id": "eITD4QpjU6",
+                    "score": 40
+                },
+                {
+                    "user_id": "rrI0nXw",
+                    "score": 36
+                },
+                {
+                    "user_id": "qIx4Y8r3e",
+                    "score": 36
+                },
+                {
+                    "user_id": "xnTaNTEyv",
+                    "score": 24
+                }
+            ]
+        },
+        {
+            "episode": 2,
+            "scores": [
+                {
+                    "user_id": "eITD4QpjU6",
+                    "score": 46
+                },
+                {
+                    "user_id": "3YG81qJdO7",
+                    "score": 41
+                },
+                {
+                    "user_id": "EhkAJqvKqo",
+                    "score": 40
+                },
+                {
+                    "user_id": "88XmSp5Zg",
+                    "score": 39
+                },
+                {
+                    "user_id": "rtwERQiz",
+                    "score": 36
+                },
+                {
+                    "user_id": "qbsgtzs0DZ",
+                    "score": 35
+                },
+                {
+                    "user_id": "xnTaNTEyv",
+                    "score": 35
+                },
+                {
+                    "user_id": "rsicgL3",
+                    "score": 33
+                },
+                {
+                    "user_id": "qIx4Y8r3e",
+                    "score": 33
+                },
+                {
+                    "user_id": "mq01epNgN3",
+                    "score": 33
+                },
+                {
+                    "user_id": "ytedngVm7W",
+                    "score": 32
+                },
+                {
+                    "user_id": "90vGX7z12X",
+                    "score": 30
+                }
+            ]
+        },
+        {
+            "episode": 3,
+            "scores": [
+                {
+                    "user_id": "eITD4QpjU6",
+                    "score": 44
+                },
+                {
+                    "user_id": "qIx4Y8r3e",
+                    "score": 40
+                },
+                {
+                    "user_id": "qbsgtzs0DZ",
+                    "score": 36
+                },
+                {
+                    "user_id": "rsicgL3",
+                    "score": 35
+                },
+                {
+                    "user_id": "rtwERQiz",
+                    "score": 32
+                },
+                {
+                    "user_id": "vM8J41Ej0L",
+                    "score": 27
+                },
+                {
+                    "user_id": "EhkAJqvKqo",
+                    "score": 25
+                },
+                {
+                    "user_id": "88XmSp5Zg",
+                    "score": 19
+                },
+                {
+                    "user_id": "xnTaNTEyv",
+                    "score": 19
+                }
+            ]
+        },
+        {
+            "episode": 4,
+            "scores": [
+                {
+                    "user_id": "rtwERQiz",
+                    "score": 40
+                },
+                {
+                    "user_id": "qIx4Y8r3e",
+                    "score": 38
+                },
+                {
+                    "user_id": "90vGX7z12X",
+                    "score": 38
+                },
+                {
+                    "user_id": "88XmSp5Zg",
+                    "score": 34
+                },
+                {
+                    "user_id": "eITD4QpjU6",
+                    "score": 34
+                },
+                {
+                    "user_id": "EhkAJqvKqo",
+                    "score": 33
+                },
+                {
+                    "user_id": "3YG81qJdO7",
+                    "score": 32
+                },
+                {
+                    "user_id": "xnTaNTEyv",
+                    "score": 32
+                },
+                {
+                    "user_id": "vM8J41Ej0L",
+                    "score": 28
+                },
+                {
+                    "user_id": "qbsgtzs0DZ",
+                    "score": 26
+                }
+            ]
+        },
+        {
+            "episode": 5,
+            "scores": [
+                {
+                    "user_id": "vM8J41Ej0L",
+                    "score": 46
+                },
+                {
+                    "user_id": "rtwERQiz",
+                    "score": 42
+                },
+                {
+                    "user_id": "rsicgL3",
+                    "score": 40
+                },
+                {
+                    "user_id": "eITD4QpjU6",
+                    "score": 40
+                },
+                {
+                    "user_id": "qbsgtzs0DZ",
+                    "score": 37
+                },
+                {
+                    "user_id": "xnTaNTEyv",
+                    "score": 37
+                },
+                {
+                    "user_id": "90vGX7z12X",
+                    "score": 35
+                },
+                {
+                    "user_id": "qIx4Y8r3e",
+                    "score": 33
+                }
+            ]
+        },
+        {
+            "episode": 6,
+            "scores": [
+                {
+                    "user_id": "eITD4QpjU6",
+                    "score": 48
+                },
+                {
+                    "user_id": "xnTaNTEyv",
+                    "score": 48
+                },
+                {
+                    "user_id": "rtwERQiz",
+                    "score": 40
+                },
+                {
+                    "user_id": "qbsgtzs0DZ",
+                    "score": 39
+                },
+                {
+                    "user_id": "rsicgL3",
+                    "score": 38
+                },
+                {
+                    "user_id": "mq01epNgN3",
+                    "score": 38
+                },
+                {
+                    "user_id": "qIx4Y8r3e",
+                    "score": 34
+                },
+                {
+                    "user_id": "3YG81qJdO7",
+                    "score": 34
+                },
+                {
+                    "user_id": "vM8J41Ej0L",
+                    "score": 31
+                },
+                {
+                    "user_id": "90vGX7z12X",
+                    "score": 31
+                },
+                {
+                    "user_id": "rrI0nXw",
+                    "score": 29
+                },
+                {
+                    "user_id": "ytedngVm7W",
+                    "score": 29
+                }
+            ]
+        },
+        {
+            "episode": 7,
+            "scores": [
+                {
+                    "user_id": "3YG81qJdO7",
+                    "score": 48
+                },
+                {
+                    "user_id": "90vGX7z12X",
+                    "score": 46
+                },
+                {
+                    "user_id": "vM8J41Ej0L",
+                    "score": 44
+                },
+                {
+                    "user_id": "rtwERQiz",
+                    "score": 43
+                },
+                {
+                    "user_id": "rsicgL3",
+                    "score": 43
+                },
+                {
+                    "user_id": "eITD4QpjU6",
+                    "score": 41
+                },
+                {
+                    "user_id": "qIx4Y8r3e",
+                    "score": 38
+                },
+                {
+                    "user_id": "qbsgtzs0DZ",
+                    "score": 38
+                },
+                {
+                    "user_id": "xnTaNTEyv",
+                    "score": 38
+                }
+            ]
+        },
+        {
+            "episode": 8,
+            "scores": [
+                {
+                    "user_id": "eITD4QpjU6",
+                    "score": 39
+                },
+                {
+                    "user_id": "vM8J41Ej0L",
+                    "score": 37
+                },
+                {
+                    "user_id": "qIx4Y8r3e",
+                    "score": 36
+                },
+                {
+                    "user_id": "rsicgL3",
+                    "score": 35
+                },
+                {
+                    "user_id": "3YG81qJdO7",
+                    "score": 35
+                },
+                {
+                    "user_id": "EhkAJqvKqo",
+                    "score": 32
+                },
+                {
+                    "user_id": "88XmSp5Zg",
+                    "score": 30
+                },
+                {
+                    "user_id": "qbsgtzs0DZ",
+                    "score": 29
+                },
+                {
+                    "user_id": "rtwERQiz",
+                    "score": 27
+                },
+                {
+                    "user_id": "xnTaNTEyv",
+                    "score": 27
+                },
+                {
+                    "user_id": "rrI0nXw",
+                    "score": 22
+                }
+            ]
+        },
+        {
+            "episode": 9,
+            "scores": [
+                {
+                    "user_id": "vM8J41Ej0L",
+                    "score": 43
+                },
+                {
+                    "user_id": "rtwERQiz",
+                    "score": 42
+                },
+                {
+                    "user_id": "eITD4QpjU6",
+                    "score": 42
+                },
+                {
+                    "user_id": "rsicgL3",
+                    "score": 40
+                },
+                {
+                    "user_id": "xnTaNTEyv",
+                    "score": 40
+                },
+                {
+                    "user_id": "3YG81qJdO7",
+                    "score": 39
+                },
+                {
+                    "user_id": "qbsgtzs0DZ",
+                    "score": 38
+                },
+                {
+                    "user_id": "90vGX7z12X",
+                    "score": 36
+                },
+                {
+                    "user_id": "qIx4Y8r3e",
+                    "score": 34
+                },
+                {
+                    "user_id": "rrI0nXw",
+                    "score": 31
+                },
+                {
+                    "user_id": "ytedngVm7W",
+                    "score": 31
+                }
+            ]
+        }
+    ],
+    "users": [
+        {
+            "user_id": "xnTaNTEyv",
+            "username": "Inkfish",
+            "first_name": "Peter",
+            "last_name": "Eliasson",
+            "profile": {
+                "color": "#f5b945",
+                "image_url": "https://avatar-static.prod.uno.svt.se/avatars/xnTaNTEyv.png"
+            }
+        },
+        {
+            "user_id": "sC3lf5G7v",
+            "username": "DjupsinnigFabrik66",
+            "first_name": "Amanda",
+            "last_name": "Fransson",
+            "profile": {
+                "color": "#9579DA",
+                "image_url": "https://avatar-static.prod.uno.svt.se/avatars/sC3lf5G7v.png"
+            }
+        },
+        {
+            "user_id": "88XmSp5Zg",
+            "username": "KomplexMejsel",
+            "first_name": "Johnny",
+            "last_name": "Nguyen",
+            "profile": {
+                "color": "#f5b945",
+                "image_url": "https://avatar-static.prod.uno.svt.se/avatars/88XmSp5Zg.png"
+            }
+        },
+        {
+            "user_id": "rtwERQiz",
+            "username": "FashionabelAkrobat86",
+            "first_name": "Lisa",
+            "last_name": "Strandvik",
+            "profile": {
+                "color": "#9579DA",
+                "image_url": "https://avatar-static.prod.uno.svt.se/avatars/rtwERQiz.png"
+            }
+        },
+        {
+            "user_id": "rrI0nXw",
+            "username": "Marredona",
+            "first_name": "Martin",
+            "last_name": "Eliasson",
+            "profile": {
+                "color": "#9579DA",
+                "image_url": "https://avatar-static.prod.uno.svt.se/avatars/rrI0nXw.png"
+            }
+        },
+        {
+            "user_id": "rsicgL3",
+            "username": "DisigBasilika30",
+            "first_name": "Linnea",
+            "last_name": "Nilsson",
+            "profile": {
+                "color": "#f5b945",
+                "image_url": "https://avatar-static.prod.uno.svt.se/avatars/rsicgL3.png"
+            }
+        },
+        {
+            "user_id": "qIx4Y8r3e",
+            "username": "TrumpenKastrull55",
+            "first_name": "Jakob",
+            "last_name": "Cs\u00f6rgei Gustavsson",
+            "profile": {
+                "color": "#9579da",
+                "image_url": "https://avatar-static.prod.uno.svt.se/avatars/qIx4Y8r3e.png"
+            }
+        },
+        {
+            "user_id": "o28Yw86AWh",
+            "username": "chawa",
+            "first_name": "Charlotta",
+            "last_name": "Wadman",
+            "profile": {
+                "color": "#89c053",
+                "image_url": "https://avatar-static.prod.uno.svt.se/avatars/o28Yw86AWh.png"
+            }
+        },
+        {
+            "user_id": "QXsQk3oUWE",
+            "username": "FriskKortlek",
+            "first_name": "Anna",
+            "last_name": "Granat",
+            "profile": {
+                "color": "#d56fac",
+                "image_url": "https://avatar-static.prod.uno.svt.se/avatars/QXsQk3oUWE.png"
+            }
+        },
+        {
+            "user_id": "EhkAJqvKqo",
+            "username": "Wilmerto",
+            "first_name": "Wilma",
+            "last_name": "Westin",
+            "profile": {
+                "color": "#424852",
+                "image_url": "https://avatar-static.prod.uno.svt.se/avatars/EhkAJqvKqo.png"
+            }
+        },
+        {
+            "user_id": "jdj2AU22Io",
+            "username": "RafflandeSkojare41",
+            "first_name": "Bj\u00f6rn",
+            "last_name": "Lindahl",
+            "profile": {
+                "color": "#9579DA",
+                "image_url": "https://avatar-static.prod.uno.svt.se/avatars/jdj2AU22Io.png"
+            }
+        },
+        {
+            "user_id": "eITD4QpjU6",
+            "username": "birdballoons",
+            "first_name": "Ellen",
+            "last_name": "Wedel",
+            "profile": {
+                "color": "#f5b945",
+                "image_url": "https://avatar-static.prod.uno.svt.se/avatars/eITD4QpjU6.png"
+            }
+        },
+        {
+            "user_id": "vM8J41Ej0L",
+            "username": "KungligPyjamas",
+            "first_name": "Maria",
+            "last_name": "Linde-Nielsen",
+            "profile": {
+                "color": "#89c053",
+                "image_url": "https://avatar-static.prod.uno.svt.se/avatars/vM8J41Ej0L.png"
+            }
+        },
+        {
+            "user_id": "3YG81qJdO7",
+            "username": "MotsattLigist52",
+            "first_name": "Anders",
+            "last_name": "Lyrheden",
+            "profile": {
+                "color": "#35ba9b",
+                "image_url": "https://avatar-static.prod.uno.svt.se/avatars/3YG81qJdO7.png"
+            }
+        },
+        {
+            "user_id": "90vGX7z12X",
+            "username": "VakantSenator707",
+            "first_name": "Hannes",
+            "last_name": "Erikson",
+            "profile": {
+                "color": "#e8553e",
+                "image_url": "https://avatar-static.prod.uno.svt.se/avatars/90vGX7z12X.png"
+            }
+        },
+        {
+            "user_id": "mq01epNgN3",
+            "username": "RadikalHandske033",
+            "first_name": "Rickard",
+            "last_name": "Ekl\u00f6w",
+            "profile": {
+                "color": "#f5b945",
+                "image_url": "https://avatar-static.prod.uno.svt.se/avatars/mq01epNgN3.png"
+            }
+        },
+        {
+            "user_id": "ytedngVm7W",
+            "username": "MetodiskKupol228",
+            "first_name": "Bullen",
+            "last_name": "Ettusen",
+            "profile": {
+                "color": "#3aadd9",
+                "image_url": "https://avatar-static.prod.uno.svt.se/avatars/ytedngVm7W.png"
+            }
+        },
+        {
+            "user_id": "qbsgtzs0DZ",
+            "username": "T\u00e5gv\u00e4rd",
+            "first_name": "Anna",
+            "last_name": "Eliasson",
+            "profile": {
+                "color": "#3aadd9",
+                "image_url": "https://avatar-static.prod.uno.svt.se/avatars/qbsgtzs0DZ.png"
+            }
+        }
+    ]
+}
